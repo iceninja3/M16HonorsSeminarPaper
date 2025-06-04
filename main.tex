@@ -1,6 +1,6 @@
 \documentclass[sigconf, anonymous=false]{acmart} % Use sigconf for conference proceedings, anonymous=false for final version
 
-% Recommended Packages
+% packages
 \usepackage{amsmath}    % For advanced math environments
 \usepackage{amsfonts}   % For mathematical fonts
 \usepackage{amssymb}    % For additional math symbols
@@ -11,7 +11,8 @@
 \usepackage{listings}   % For code listings
 \usepackage{caption}    % For caption customization
 \usepackage{subcaption} % For subfigures
-\usepackage{tikz}       % For drawing diagrams (if needed)
+\usepackage{tikz}       % For drawing diagrams
+\usepackage{tabularx}
 
 % ACM Reference Format
 \AtBeginDocument{%
@@ -260,10 +261,39 @@ The HLS market is dominated by commercial tools from major EDA vendors, though s
 
 \begin{table}[h]
 \centering
-\caption{Selected HLS Tools Comparison (Readable with Wrapping)}
+\caption{Selected HLS Tools Comparison}
+\label{tab:hls_tools_comparison_wrap}
+\footnotesize
+
+
+% start snippet
+% We use tabularx to make the table fit the text width.
+% The 'X' columns are flexible and wrap text automatically.
+% We use >{\raggedright\arraybackslash} to make the text in the X columns 
+% left-aligned, which looks better than fully justified for narrow columns.
+\begin{tabularx}{\columnwidth}{ ll >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X }
+\toprule
+\textbf{Tool} & \textbf{Owner} & \textbf{Input Languages} & \textbf{Target Hardware} & \textbf{Key Capabilities / Control} \\
+\midrule
+Stratus HLS & Cadence & C, C++, SystemC & RTL (ASIC, FPGA) & Multi-level abstraction, power optimization \\
+Catapult      & Siemens EDA & C, C++, SystemC & RTL (ASIC, FPGA) & Micro-architecture exploration, formal verification \\
+Vivado HLS    & Xilinx (AMD) & C, C++, SystemC & Verilog, VHDL (Xilinx FPGAs) & Pragmas for pipelining, unrolling, array partitioning \\
+Intel HLS Compiler & Intel FPGA & C, C++ & Verilog (Intel FPGAs) & Similar pragmas for performance optimization \\
+LegUp HLS     & LegUp Computing & C, C++ & Verilog (FPGAs) & Open-source roots, supports full OS stack (bare-metal) \\
+HDL Coder     & MathWorks & MATLAB, Simulink & VHDL, Verilog & DSP, control systems, model-based design \\
+Bambu         & PoliMi (Academic) & C & VHDL, Verilog & Focus on C to hardware compilation \\
+\bottomrule
+\end{tabularx}
+\end{table} 
+% end snippet
+
+
+\begin{table}[h]
+\centering
+\caption{Selected HLS Tools Comparison}
 \label{tab:hls_tools_comparison_wrap}
 \footnotesize % Use \small for a slightly smaller, readable font. You can try \footnotesize if still too wide.
-\begin{tabular}{llllm{1cm}} % Adjust the '4.5cm' width for the last column as needed
+\begin{tabular}{llllm{0cm}} % Adjust the '4.5cm' width for the last column as needed
 \toprule
 \textbf{Tool} & \textbf{Owner} & \textbf{Input Languages} & \textbf{Target Hardware} & \textbf{Key Capabilities / Control} \\
 \midrule
