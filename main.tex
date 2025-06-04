@@ -100,7 +100,7 @@ The primary advantage of traditional HDLs lies in their \textbf{fine-grained con
 The limitations of traditional HDLs have spurred the development of modern hardware description languages and frameworks. These tools aim to bridge the gap between software and hardware design by leveraging high-level programming paradigms, offering increased abstraction, productivity, and reusability. They often act as \textbf{Hardware Construction Languages (HCLs)} or embedded Domain-Specific Languages (DSLs) that generate traditional HDLs for synthesis.
 
 \subsection{SystemVerilog}
-SystemVerilog (IEEE Std 1800) is an evolutionary extension of Verilog, designed to address the growing complexity of design and verification. It introduces powerful features from object-oriented programming (OOP) and high-level data structures, significantly enhancing RTL design, assertion-based verification (ABV), and functional verification.
+SystemVerilog\cite{10458102} is an evolutionary extension of Verilog, designed to address the growing complexity of design and verification. It introduces powerful features from object-oriented programming (OOP) and high-level data structures, significantly enhancing RTL design, assertion-based verification (ABV), and functional verification.
 \begin{itemize}
     \item \textbf{Abstraction Level:} Primarily RTL, but with enhanced constructs for behavioral modeling and system-level verification.
     \item \textbf{Design Paradigm:} Multi-paradigm, supporting procedural, dataflow, structural, and object-oriented programming.
@@ -113,7 +113,7 @@ SystemVerilog (IEEE Std 1800) is an evolutionary extension of Verilog, designed 
 \end{itemize}
 
 \subsection{SystemC}
-SystemC (IEEE Std 1666) is a C++ library that enables hardware description at various levels of abstraction, from high-level architectural modeling (Electronic System-Level - ESL) to detailed RTL. It is widely used for system-level design, hardware/software co-design, and IP exchange.
+SystemC\cite{10246125} is a C++ library that enables hardware description at various levels of abstraction, from high-level architectural modeling (Electronic System-Level - ESL) to detailed RTL. It is widely used for system-level design, hardware/software co-design, and IP exchange.
 \begin{itemize}
     \item \textbf{Abstraction Level:} Supports Transaction-Level Modeling (TLM), behavioral, and RTL.
     \item \textbf{Design Paradigm:} Object-oriented, event-driven, leveraging C++ classes for modules, ports, signals, and processes.
@@ -126,7 +126,7 @@ SystemC (IEEE Std 1666) is a C++ library that enables hardware description at va
 Leveraging Python's versatility, these frameworks allow hardware designers to use a high-level, expressive language with access to a vast software ecosystem for design generation, simulation, and verification.
 
 \subsubsection{Amaranth}
-Amaranth (formerly nMigen) is a modern, open-source hardware description language embedded in Python. It focuses on composable, parameterized hardware generation and aims for high-level yet predictable RTL.
+Amaranth (formerly nMigen)\cite{AmaranthStdLib} is a modern, open-source hardware description language embedded in Python. It focuses on composable, parameterized hardware generation and aims for high-level yet predictable RTL.
 \begin{itemize}
     \item \textbf{Underlying Language:} Python.
     \item \textbf{Abstraction Level:} Primarily RTL, but with strong metaprogramming capabilities for higher-level abstraction.
@@ -137,7 +137,7 @@ Amaranth (formerly nMigen) is a modern, open-source hardware description languag
 \end{itemize}
 
 \subsubsection{MyHDL}
-MyHDL is another Python-based HDL that enables co-design and co-verification of hardware using Python. It allows designers to write hardware descriptions in Python that can be converted to synthesizable Verilog or VHDL.
+MyHDL\cite{myHDL} is another Python-based HDL that enables co-design and co-verification of hardware using Python. It allows designers to write hardware descriptions in Python that can be converted to synthesizable Verilog or VHDL.
 \begin{itemize}
     \item \textbf{Underlying Language:} Python.
     \item \textbf{Abstraction Level:} Behavioral and RTL.
@@ -151,7 +151,7 @@ MyHDL is another Python-based HDL that enables co-design and co-verification of 
 Scala, with its strong functional and object-oriented features, provides a powerful host language for embedding hardware construction DSLs.
 
 \subsubsection{Chisel}
-Chisel (Constructing Hardware In Scala Embedded Language) is an open-source hardware construction language that compiles into Verilog. Developed at UC Berkeley, it enables designers to create highly parameterized and reusable hardware generators.
+Chisel (Constructing Hardware In Scala Embedded Language)\cite{Bachrach2012} is an open-source hardware construction language that compiles into Verilog. Developed at UC Berkeley, it enables designers to create highly parameterized and reusable hardware generators.
 \begin{itemize}
     \item \textbf{Underlying Language:} Scala.
     \item \textbf{Abstraction Level:} Primarily RTL, but with powerful metaprogramming for higher-level circuit generation.
@@ -162,7 +162,7 @@ Chisel (Constructing Hardware In Scala Embedded Language) is an open-source hard
 \end{itemize}
 
 \subsubsection{SpinalHDL}
-SpinalHDL is another open-source hardware description language embedded in Scala, aiming to provide higher abstraction and improved productivity compared to Chisel. It emphasizes explicit hardware concepts and aims for high-quality generated RTL.
+SpinalHDL\cite{SpinalHDLDocs} is another open-source hardware description language embedded in Scala, aiming to provide higher abstraction and improved productivity compared to Chisel. It emphasizes explicit hardware concepts and aims for high-quality generated RTL.
 \begin{itemize}
     \item \textbf{Underlying Language:} Scala.
     \item \textbf{Abstraction Level:} RTL, with focus on structural description and advanced abstractions.
@@ -184,7 +184,7 @@ Bluespec SystemVerilog (BSV) offers a unique approach to hardware design based o
 \end{itemize}
 
 \subsection{Comparison of Modern HDLs}
-Table \ref{tab:modern_hdl_comparison} summarizes the key characteristics of the discussed modern HDLs.
+Table \ref{tab:modern_hdl_comparison_scaled} summarizes the key characteristics of the discussed modern HDLs.
 
 \begin{document}
 
@@ -253,28 +253,50 @@ The HLS process converts an un-timed or partially-timed behavioral description i
 \end{itemize}
 
 \subsection{Comparison of HLS Tools}
-The HLS market is dominated by commercial tools from major EDA vendors, though several academic and open-source solutions exist. Table \ref{tab:hls_tools_comparison} provides a non-exhaustive overview of prominent HLS tools.
+The HLS market is dominated by commercial tools from major EDA vendors, though several academic and open-source solutions exist. Table \ref{tab:hls_tools_comparison_wrap} provides a non-exhaustive overview of prominent HLS tools.
+% Add this to your document preamble if not already present:
+% \usepackage{booktabs}
+% \usepackage{array}
 
 \begin{table}[h]
 \centering
-\caption{Selected HLS Tools Comparison}
-\label{tab:hls_tools_comparison}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lllll}
+\caption{Selected HLS Tools Comparison (Readable with Wrapping)}
+\label{tab:hls_tools_comparison_wrap}
+\footnotesize % Use \small for a slightly smaller, readable font. You can try \footnotesize if still too wide.
+\begin{tabular}{llllm{1cm}} % Adjust the '4.5cm' width for the last column as needed
 \toprule
 \textbf{Tool} & \textbf{Owner} & \textbf{Input Languages} & \textbf{Target Hardware} & \textbf{Key Capabilities / Control} \\
 \midrule
 Stratus HLS & Cadence & C, C++, SystemC & RTL (ASIC, FPGA) & Multi-level abstraction, power optimization \\
-Catapult     & Siemens EDA & C, C++, SystemC & RTL (ASIC, FPGA) & Micro-architecture exploration, formal verification \\
-Vivado HLS   & Xilinx (AMD) & C, C++, SystemC & Verilog, VHDL (Xilinx FPGAs) & Pragmas for pipelining, unrolling, array partitioning \\
+Catapult      & Siemens EDA & C, C++, SystemC & RTL (ASIC, FPGA) & Micro-architecture exploration, formal verification \\
+Vivado HLS    & Xilinx (AMD) & C, C++, SystemC & Verilog, VHDL (Xilinx FPGAs) & Pragmas for pipelining, unrolling, array partitioning \\
 Intel HLS Compiler & Intel FPGA & C, C++ & Verilog (Intel FPGAs) & Similar pragmas for performance optimization \\
-LegUp HLS    & LegUp Computing & C, C++ & Verilog (FPGAs) & Open-source roots, supports full OS stack (bare-metal) \\
-HDL Coder    & MathWorks & MATLAB, Simulink & VHDL, Verilog & DSP, control systems, model-based design \\
-Bambu        & PoliMi (Academic) & C & VHDL, Verilog & Focus on C to hardware compilation \\
+LegUp HLS     & LegUp Computing & C, C++ & Verilog (FPGAs) & Open-source roots, supports full OS stack (bare-metal) \\
+HDL Coder     & MathWorks & MATLAB, Simulink & VHDL, Verilog & DSP, control systems, model-based design \\
+Bambu         & PoliMi (Academic) & C & VHDL, Verilog & Focus on C to hardware compilation \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabular}
 \end{table}
+% \begin{table}[h]
+% \centering
+% \caption{Selected HLS Tools Comparison}
+% \label{tab:hls_tools_comparison}
+% \resizebox{\columnwidth}{!}{%
+% \begin{tabular}{lllll}
+% \toprule
+% \textbf{Tool} & \textbf{Owner} & \textbf{Input Languages} & \textbf{Target Hardware} & \textbf{Key Capabilities / Control} \\
+% \midrule
+% Stratus HLS & Cadence & C, C++, SystemC & RTL (ASIC, FPGA) & Multi-level abstraction, power optimization \\
+% Catapult     & Siemens EDA & C, C++, SystemC & RTL (ASIC, FPGA) & Micro-architecture exploration, formal verification \\
+% Vivado HLS   & Xilinx (AMD) & C, C++, SystemC & Verilog, VHDL (Xilinx FPGAs) & Pragmas for pipelining, unrolling, array partitioning \\
+% Intel HLS Compiler & Intel FPGA & C, C++ & Verilog (Intel FPGAs) & Similar pragmas for performance optimization \\
+% LegUp HLS    & LegUp Computing & C, C++ & Verilog (FPGAs) & Open-source roots, supports full OS stack (bare-metal) \\
+% HDL Coder    & MathWorks & MATLAB, Simulink & VHDL, Verilog & DSP, control systems, model-based design \\
+% Bambu        & PoliMi (Academic) & C & VHDL, Verilog & Focus on C to hardware compilation \\
+% \bottomrule
+% \end{tabular}%
+% }
+% \end{table}
 
 \textbf{Are HLS tools identical? No.} Many companies offer HLS tools (e.g., Cadence, Synopsys, Achronix, etc.) While they share the core concept of translating C/C++ to hardware, significant differences exist in their:
 \begin{itemize}
@@ -446,7 +468,7 @@ This generated RTL is then passed to standard logic synthesis and physical desig
     \item \textbf{Tool Maturity and Ecosystem:} Traditional HDL synthesis tools are extremely mature and have decades of optimization. While modern HDLs and HLS tools are rapidly maturing, their ecosystems (e.g., verification IP, formal tools) may not be as extensive.
     \item \textbf{Verification Gap:} High-level descriptions (especially HLS) need to be verified against their generated RTL. This requires robust methodologies to ensure functional equivalence, which can be complex.
 \end{itemize}
-The "Are We There Yet?" study on HLS QoR highlights that while HLS offers significant productivity gains, achieving manual-RTL quality results often requires substantial effort in C code restructuring and pragma tuning. The gap is narrowing, but HLS still functions best where data paths are regular and algorithmic structures align well with common hardware architectural patterns (e.g., pipelining, parallel functional units).
+The "Are We There Yet?" study\cite{ThereYet} on HLS QoR highlights that while HLS offers significant productivity gains, achieving manual-RTL quality results often requires substantial effort in C code restructuring and pragma tuning. The gap is narrowing, but HLS still functions best where data paths are regular and algorithmic structures align well with common hardware architectural patterns (e.g., pipelining, parallel functional units).
 
 % ---
 \section{Exploration via Examples}
@@ -465,7 +487,7 @@ class ALU(width: Int) extends Module {
   val io = IO(new Bundle {
     val op1 = Input(UInt(width.W))
     val op2 = Input(UInt(width.W))
-    val alu_op = Input(UInt(4.W)) // 4-bit opcode
+    val alu_op = Input(UInt(4.W))//4-bit opcode
     val result = Output(UInt(width.W))
     val zero = Output(Bool())
   })
@@ -493,6 +515,8 @@ This example shows how Chisel leverages Scala's `when-elsewhen` for combinationa
 Fast Fourier Transform (FFT) algorithms often require a bit-reversal permutation of input data. This involves reordering elements based on the bit-reversed index of their original position.
 \begin{itemize}
     \item \textbf{General Approach in HDLs:} Implementing bit-reversal in hardware often involves a reordering buffer or a state machine that controls memory accesses. Given $N$ elements, an element at index $i$ moves to index $bit\_reverse(i)$. This can be done by a fixed permutation network for small $N$ or address calculation for larger $N$. While direct code for Amaranth or Bluespec specifically for FFT bit-reversal wasn't found in my last search, the general approach involves using array indexing and bit manipulation functionalities present in these languages. For instance, in Amaranth, one would use bit slicing and concatenation operators on signals representing the indices to compute the bit-reversed address.
+    \item \textbf{General Approach with HLS: } With High-Level Synthesis (HLS), the designer works at a higher level of abstraction, describing the bit-reversal permutation algorithmically in a language like C or C++. The HLS tool is then responsible for interpreting this behavioral model to generate the underlying hardware. As highlighted by \cite{HLSForFFT}, the structure of this behavioral model is critical to the quality of the resulting hardware. The work presents a generic and configurable FFT model that allows the HLS tool to explore a much broader architectural space. By leveraging different parallelization strategies outlined in the model, the HLS tool can automatically synthesize various implementations for the bit-reversal logic and memory structure, enabling a trade-off between low-complexity architectures and high-throughput, parallelized ones based on user-defined constraints. This abstracts away the need to manually design state machines or address calculation units, placing the emphasis on creating a flexible high-level model instead.
+\cite{HLSForFFT}
 \end{itemize}
 
 \subsection{Simple Memory Interface Implementation}
@@ -751,11 +775,13 @@ The transition to modern hardware description tools offers significant benefits 
 \end{itemize}
 
 % ---
-\section{Conclusion}
+\section{Conclusion/Reflections}
 \label{sec:conclusion}
 The evolution of hardware description tools marks a significant paradigm shift in digital design. While traditional HDLs like Verilog and VHDL remain essential for their precise control, modern HDLs (SystemVerilog, SystemC, Chisel, SpinalHDL, Amaranth, MyHDL, Bluespec) and High-Level Synthesis tools are addressing the ever-increasing complexity of hardware by offering higher levels of abstraction, improved productivity, and enhanced reusability. Adjacent tools like CocoTB and OpenCL further augment the design and verification landscape, bringing software-centric methodologies to hardware development.
 
 The future of hardware design lies in a hybrid approach, leveraging the strengths of each methodology. High-level tools will increasingly enable rapid prototyping and architectural exploration, while traditional HDLs will continue to be vital for final-stage optimization and interfacing. The ongoing development of sophisticated compilers, intermediate representations, and verification frameworks will continue to push the boundaries of what is achievable in hardware design, enabling the creation of more complex, efficient, and reliable systems with shorter design cycles. The continuous integration of software development best practices will be key to unlocking the full potential of these modern tools.
+
+A key principle for designers and engineers to keep in mind is that different workflows are better suited to different applications. Even within the same project, different subprojects can utilize different tools to great efficiency and performance gains. To give a specific example, algorithmically-rich hardware designs may be implemented most efficiently with HLS tools while prototyping may be done most easily with Python HDLs like Amaranth and MyHDL.  However, learning and growing familiar with different technologies does take time and given the industry's comfort with Verilog, VHDL, and SystemVerilog, it is to be seen if newer tools will gain widespread adoption or are "worth it" given their learning curve. 
 
 % ---
 \begin{acks}
