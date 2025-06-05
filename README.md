@@ -1,5 +1,5 @@
 # M16HonorsSeminarPaper
-Vishal Dandandamudi
+Vishal Dandamudi
 
 For EC 89 (seminar class attached to EC ENGR M16 Spring 2025). 
 
