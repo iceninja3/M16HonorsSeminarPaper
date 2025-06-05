@@ -1,7 +1,7 @@
 # M16HonorsSeminarPaper
 Vishal Dandamudi
 
-For EC 89 (seminar class attached to EC ENGR M16 Spring 2025). 
+For EC 89 (honors seminar class attached to EC ENGR M16 Spring 2025). 
 
 Covered mordern tools in hardware development toolchains and their pros/cons/how they work/etc. 
 
