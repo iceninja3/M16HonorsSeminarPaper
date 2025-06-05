@@ -1,5 +1,17 @@
 \documentclass[sigconf, anonymous=false]{acmart} % Use sigconf for conference proceedings, anonymous=false for final version
 
+% --- START OF THE FIX ---
+% This command manually turns off the ACM reference block and copyright info.
+% The 'anonymous' flag should do this by itself, but we are forcing it.
+\settopmatter{printacmref=false}
+
+% This command removes the page numbers, which is also standard for review.
+\settopmatter{printfolios=false} 
+
+% This is a more aggressive command to kill the copyright footer text
+\renewcommand\footnotetextcopyrightpermission[1]{} 
+% --- END OF THE FIX ---
+
 % packages
 \usepackage{amsmath}    % For advanced math environments
 \usepackage{amsfonts}   % For mathematical fonts
@@ -20,19 +32,16 @@
     \normalfont B\kern-0.5em{\sc i\kern-0.25em T}\kern-0.8em\TeX}}}
 
 % Rights management information.
-\setcopyright{acmcopyright}
-\copyrightyear{2025}
-\acmYear{2025}
-\acmDOI{XXXXXXX.XXXXXXX} % Replace with actual DOI
+\setcopyright{none}
+\copyrightyear{}
+\acmYear{}
+\acmDOI{} % Replace with actual DOI
+\acmConference{}
 
-% Update the conference title to reflect your paper's context
-\acmConference[FPGA'25]{Proceedings of the 2025 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays}{February 23--25, 2025}{Monterey, CA} % Example conference
-\acmBooktitle{Proceedings of the 2025 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays (FPGA'25), February 23--25, 2025, Monterey, CA}
-\acmPrice{15.00}
-\acmISBN{978-1-4503-XXXX-X/YY/ZZ} % Replace with actual ISBN
+
 
 % Keywords
-\keywords{Hardware Description Languages, HDLs, High-Level Synthesis, HLS, SystemVerilog, SystemC, Chisel, SpinalHDL, Amaranth, MyHDL, Bluespec, CocoTB, OpenCL, FPGA, ASIC, RTL Design}
+%\keywords{Hardware Description Languages, HDLs, High-Level Synthesis, HLS, SystemVerilog, SystemC, Chisel, SpinalHDL, Amaranth, MyHDL, Bluespec, CocoTB, OpenCL, FPGA, ASIC, RTL Design}
 
 % Disable ACM CCS concepts and metadata for brevity in this example.
 % For a real paper, you would include them.
