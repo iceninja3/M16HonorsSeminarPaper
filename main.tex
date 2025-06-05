@@ -38,7 +38,8 @@
 % For a real paper, you would include them.
 % \settopmatter{printacmref=false}
 % \renewcommand\footnotetextcopyrightpermission[1]{} % Suppress footnote with conference information in first column
-
+\pagestyle{plain}
+\settopmatter{printfolios=true}
 \begin{document}
 
 % Title
@@ -287,46 +288,6 @@ Bambu         & PoliMi (Academic) & C & VHDL, Verilog & Focus on C to hardware c
 \end{table} 
 % end snippet
 
-
-\begin{table}[h]
-\centering
-\caption{Selected HLS Tools Comparison}
-\label{tab:hls_tools_comparison_wrap}
-\footnotesize % Use \small for a slightly smaller, readable font. You can try \footnotesize if still too wide.
-\begin{tabular}{llllm{0cm}} % Adjust the '4.5cm' width for the last column as needed
-\toprule
-\textbf{Tool} & \textbf{Owner} & \textbf{Input Languages} & \textbf{Target Hardware} & \textbf{Key Capabilities / Control} \\
-\midrule
-Stratus HLS & Cadence & C, C++, SystemC & RTL (ASIC, FPGA) & Multi-level abstraction, power optimization \\
-Catapult      & Siemens EDA & C, C++, SystemC & RTL (ASIC, FPGA) & Micro-architecture exploration, formal verification \\
-Vivado HLS    & Xilinx (AMD) & C, C++, SystemC & Verilog, VHDL (Xilinx FPGAs) & Pragmas for pipelining, unrolling, array partitioning \\
-Intel HLS Compiler & Intel FPGA & C, C++ & Verilog (Intel FPGAs) & Similar pragmas for performance optimization \\
-LegUp HLS     & LegUp Computing & C, C++ & Verilog (FPGAs) & Open-source roots, supports full OS stack (bare-metal) \\
-HDL Coder     & MathWorks & MATLAB, Simulink & VHDL, Verilog & DSP, control systems, model-based design \\
-Bambu         & PoliMi (Academic) & C & VHDL, Verilog & Focus on C to hardware compilation \\
-\bottomrule
-\end{tabular}
-\end{table}
-% \begin{table}[h]
-% \centering
-% \caption{Selected HLS Tools Comparison}
-% \label{tab:hls_tools_comparison}
-% \resizebox{\columnwidth}{!}{%
-% \begin{tabular}{lllll}
-% \toprule
-% \textbf{Tool} & \textbf{Owner} & \textbf{Input Languages} & \textbf{Target Hardware} & \textbf{Key Capabilities / Control} \\
-% \midrule
-% Stratus HLS & Cadence & C, C++, SystemC & RTL (ASIC, FPGA) & Multi-level abstraction, power optimization \\
-% Catapult     & Siemens EDA & C, C++, SystemC & RTL (ASIC, FPGA) & Micro-architecture exploration, formal verification \\
-% Vivado HLS   & Xilinx (AMD) & C, C++, SystemC & Verilog, VHDL (Xilinx FPGAs) & Pragmas for pipelining, unrolling, array partitioning \\
-% Intel HLS Compiler & Intel FPGA & C, C++ & Verilog (Intel FPGAs) & Similar pragmas for performance optimization \\
-% LegUp HLS    & LegUp Computing & C, C++ & Verilog (FPGAs) & Open-source roots, supports full OS stack (bare-metal) \\
-% HDL Coder    & MathWorks & MATLAB, Simulink & VHDL, Verilog & DSP, control systems, model-based design \\
-% Bambu        & PoliMi (Academic) & C & VHDL, Verilog & Focus on C to hardware compilation \\
-% \bottomrule
-% \end{tabular}%
-% }
-% \end{table}
 
 \textbf{Are HLS tools identical? No.} Many companies offer HLS tools (e.g., Cadence, Synopsys, Achronix, etc.) While they share the core concept of translating C/C++ to hardware, significant differences exist in their:
 \begin{itemize}
@@ -680,7 +641,7 @@ class MyFSM extends Component {
   val fsm = new StateMachine {
     io.done := False
 
-    val stateA: State = new State with EntryPoint {
+    val stateA: State=new State with EntryPoint{
       whenIsActive {
         when(io.start) {
           goto(stateB)
